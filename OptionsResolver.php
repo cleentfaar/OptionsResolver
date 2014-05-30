@@ -342,10 +342,11 @@ class OptionsResolver implements OptionsResolverInterface
                     : (string) $value);
 
             throw new InvalidOptionsException(sprintf(
-                'The option "%s" with value "%s" is expected to be of type "%s"',
+                'The option "%s" with value "%s" is expected to be of type "%s", got "%s"',
                 $option,
                 $printableValue,
-                implode('", "', $allowedTypes)
+                implode('", "', $allowedTypes),
+                gettype($value)
             ));
         }
     }
